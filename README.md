@@ -1,1 +1,1 @@
-# Google Chrome Extension for more control over YouTube videos
+### Google Chrome Extension for more control over YouTube videos
