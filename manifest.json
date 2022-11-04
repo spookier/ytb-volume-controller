@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Spookier Extension",
+  "version": "0.1",
+  "action": 
+  {
+      "default_popup": "popup.html",
+      "default_title": "YouTube Volume Controller"
+  },
+  "content_scripts": [
+      {
+          "matches": [
+              "<all_urls>"
+          ],
+          "js": [
+              "content.js"
+          ]
+      }
+  ],
+  "permissions": 
+      ["tabs", "activeTab", "storage"],
+  "background": {
+      "service_worker": "background.js"
+  },
+  "icons": {
+      "48": "images/logo.png"
+  }
+}
