@@ -1,10 +1,15 @@
 let newVolume = -2;
-
 newVolume = document.getElementsByClassName('video-stream')[0];
 
-let actualVolume = newVolume.volume;
-console.log("INIT VOLUME: " + actualVolume);
+let initialVolume = document.getElementsByClassName('video-stream')[0];
 
+let actualVolume = newVolume.volume;
+
+
+//SET Initial Volume for popup
+chrome.storage.sync.set({key: initialVolume.volume}, function() {
+    console.log('Value is set to ' + value);
+  });
 
 newVolume.addEventListener("volumechange", (event) =>
 {
@@ -22,8 +27,11 @@ newVolume.addEventListener("volumechange", (event) =>
 
     chrome.runtime.sendMessage(message);
 
-
+    //SET Initial Volume after every click for popup
     console.log(`sent volume ${message.vol} value to popup.js`);
+    chrome.storage.sync.set({key: initialVolume.volume}, function() {
+        console.log('Value is set to ' + value);
+      });
 
 }, false);
 
